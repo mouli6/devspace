@@ -418,7 +418,7 @@ func getService(config *latest.Config, client *kubectl.Client, namespace, host s
 			continue
 		}
 
-		if service.Spec.Type == v1.ServiceTypeClusterIP {
+		if service.Spec.Type == v1.ServiceTypeClusterIP || service.Spec.Type == v1.ServiceTypeLoadBalancer{
 			if service.Spec.ClusterIP == "None" {
 				continue
 			}
